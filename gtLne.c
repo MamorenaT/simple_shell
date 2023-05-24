@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * buffer_commands: This function buffers chained commands and
- * returns the number of bytes read.
+ * buffer_commands - This function buffers chained commands and
+ * gives the number of bytes read.
  * @info: A struct containing information about the command
  * @buf: A pointer to the buffer
  * @len: A pointer to the length of the buffer
- * @return The number of bytes read
+ * Return: The number of bytes read
  */
 ssize_t buffer_commands(info_t *info, char **buf, size_t *len)
 {
@@ -44,9 +44,9 @@ ssize_t buffer_commands(info_t *info, char **buf, size_t *len)
 }
 
 /**
- * getInput: this function gets a line of input.
+ * getInput - this function gets a line of input.
  * @info: A struct containing information about the command
- * @return The number of bytes read
+ * Return: The number of bytes read
  */
 ssize_t getInput(info_t *info)
 {
@@ -57,7 +57,7 @@ ssize_t getInput(info_t *info)
 
 	_putchar(BUF_FLUSH);
 	r = buffer_commands(info, &buf, &len);
-	if (r == -1) /* EOF */
+	if (r == -1)
 		return (-1);
 	if (len)
 	{
@@ -135,7 +135,7 @@ int get_next_line(info_t *info, char **ptr, size_t *length)
 	c = _strchr(buf + i, '\n');
 	k = c ? 1 + (unsigned int)(c - buf) : len;
 	new_p = _realloc(p, s, s ? s + k : k + 1);
-	if (!new_p) /* MALLOC FAILURE! */
+	if (!new_p)
 		return (p ? free(p), -1 : -1);
 
 	if (s)
