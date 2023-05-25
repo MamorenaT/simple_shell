@@ -77,6 +77,7 @@ typedef struct passinfo
 	char **argv;
 	char *path;
 	int argc;
+	int *info;
 	unsigned int line_count;
 	int err_num;
 	int linecount_flag;
@@ -172,7 +173,7 @@ char *convert_number(long int, int, int);
 void remove_comments(char *);
 
 /* toem_built.c */
-int exit_shell(info_t, *info);
+int exit_shell(info_t* info);
 int chng_dir(info_t, *info);
 int dis_hlp(info_t, *info);
 
@@ -227,7 +228,7 @@ ssize_t getNodeIndex(list_t *head, list_t *node);
 int is_chain(info_t *info, char *buf, size_t *p);
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len);
 int replace_alias(info_t, *info);
-int replace_vars(info_t, *info);
+int replace_vars(info_t,*, info);
 int replace_string(char **old, char *new);
 
 #endif
