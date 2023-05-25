@@ -172,30 +172,30 @@ char *convert_number(long int, int, int);
 void remove_comments(char *);
 
 /* toem_built.c */
-int exit_shell(info_t *info);
-int chng_dir(info_t *info);
-int dis_hlp(info_t *info);
+int exit_shell(info_t, *info);
+int chng_dir(info_t, *info);
+int dis_hlp(info_t, *info);
 
 /* toem_builtin.c */
-int disp_history(info_t *info);
-int alias(info_t *info);
+int disp_history(info_t, *info);
+int alias(info_t, *info);
 
 /*toem_gtLne.c */
-ssize_t getInput(info_t *info);
+ssize_t getInput(info_t, *info);
 int get_next_line(info_t *, char **, size_t *info);
 void block_ctrl_c(__attribute__((unused))int sig_num);
 
 /* toem_gtinf.c */
-void ini_info(info_t *info);
+void ini_info(info_t, *info);
 void set_info(info_t *info, char **av);
 void free_info(info_t *info, int all);
 
 /* toem_env.c */
 char* get_env_var(info_t *info, const char *name);
-int current_env(info_t *info);
-int init_env_var(info_t *info);
-int rmv_env_var(info_t *info);
-int pop_env_list(info_t *info);
+int current_env(info_t, *info);
+int init_env_var(info_t, *info);
+int rmv_env_var(info_t, *info);
+int pop_env_list(info_t, *info);
 
 /* toem_gtenvi.c */
 char **get_environ_var(info_t *info);
@@ -203,11 +203,11 @@ int rm_environ_var(info_t *info, char *var);
 int ini_environ_var(info_t *info, char *var, char *value);
 
 /* toem_gthist.c */
-char *get_history_file(info_t *info);
-int write_history(info_t *info);
-int read_history(info_t *info);
+char *get_history_file(info_t, *info);
+int write_history(info_t, *info);
+int read_history(info_t, *info);
 int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
+int renumber_history(info_t, *info);
 
 /* toem_lists.c */
 list_t *add_node_to_start(list_t **head, const char *str, int num);
@@ -226,8 +226,8 @@ ssize_t getNodeIndex(list_t *head, list_t *node);
 /* toem_vars.c */
 int is_chain(info_t *info, char *buf, size_t *p);
 void check_chain(info_t *info, char *buf, size_t *p, size_t i, size_t len);
-int replace_alias(info_t *info);
-int replace_vars(info_t *info);
+int replace_alias(info_t, *info);
+int replace_vars(info_t, *info);
 int replace_string(char **old, char *new);
 
 #endif
